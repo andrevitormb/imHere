@@ -1,13 +1,17 @@
+import { useState } from 'react'
 import {Text, View, TextInput, TouchableOpacity,FlatList, Alert} from 'react-native'
 import {styles} from './styles'
 
 import { Participant } from '../../components/Participant'
 
 export function Home(){
-  const participants = ['andre', 'joão', 'pedro', 'lucas','caio','rodrigo','marisa','hugo','daniel']
+  const [participants,setParticipants]= useState(['Andre'])
+
 
   function handleParticipantAdd(){
     console.log('handleParticipantAdd')
+
+    setParticipants(prevState => [...prevState, 'Vitor'])
   }
 
   function handleParticipantRemove(name:string){
