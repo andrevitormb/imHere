@@ -1,4 +1,4 @@
-import {Text, View, TextInput, TouchableOpacity,FlatList} from 'react-native'
+import {Text, View, TextInput, TouchableOpacity,FlatList, Alert} from 'react-native'
 import {styles} from './styles'
 
 import { Participant } from '../../components/Participant'
@@ -11,6 +11,16 @@ export function Home(){
   }
 
   function handleParticipantRemove(name:string){
+    Alert.alert('Remove',`Do you really want to remove ${name} ?`,[
+      {text: 'Yes',
+       onPress: ()=> Alert.alert('Remove',`Removed ${name}`), 
+      },
+      {
+        text: 'No',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel'
+      }
+    ])
     console.log(`handleParticipantRemove ${name}`)
   }
 
