@@ -11,6 +11,7 @@ export function Home(){
   function handleParticipantAdd(){
     if(participants.includes(participantNames)){
       Alert.alert('Participant already exists')
+      setParticipantsNames('')
       return
     }
     
@@ -21,9 +22,10 @@ export function Home(){
   }
 
   function handleParticipantRemove(name:string){
+    
     Alert.alert('Remove',`Do you really want to remove ${name} ?`,[
       {text: 'Yes',
-       onPress: ()=> Alert.alert('Remove',`Removed ${name}`), 
+       onPress: ()=> setParticipants(prevEvents => prevEvents.filter(participants => participants !== name)), 
       },
       {
         text: 'No',
